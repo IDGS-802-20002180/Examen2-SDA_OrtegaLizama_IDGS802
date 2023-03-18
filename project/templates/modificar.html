@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero is-fullheight">
+    <div class="hero-body">
+        <div class="container">
+            <div class="columns is-centered">
+                <div class="column is-half">
+                    <div class="box">
+                        <h2 class="title is-4 has-text-black">Vista Prenda</h2>
+                        <form name="sent" action="{{ url_for('main.modificar', id=producto.id) }}" id="from1" method="POST" enctype="multipart/form-data">
+                            <div class="field">
+                                <label class="label">ID de la prenda:</label>
+                                <div class="control">
+                                    <input class="input" value="{{producto.id}}" name="txtId" type="text" placeholder="" disabled>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Nombre de la prenda:</label>
+                                <div class="control">
+                                    <input class="input" value="{{producto.nombre}}" name="txtNombre" type="text" placeholder="Ingresa el nombre de la prenda">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Estilo:</label>
+                                <div class="control">
+                                    <input class="input" value="{{producto.estilo}}" name="txtEstilo" type="text" placeholder="Ingresa el estilo de la prenda">
+                                </div>
+                            </div>
+
+                            <div class="field">
+                                <label class="label">Descripción:</label>
+                                <div class="control">
+                                    <textarea class="textarea" name="txtDescripcion" placeholder="Ingresa la descripción de la prenda">{{producto.descripcion}}</textarea>
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Precio:</label>
+                                <div class="control">
+                                    <input class="input" value="{{producto.precio}}" name="txtPrecio" type="number" placeholder="Ingresa el precio de la prenda">
+                                </div>
+                            </div>
+                            <div class="field">
+                                <label class="label">Imagen</label>
+                                <div class="file has-name is-boxed">
+                                    <label class="file-label">
+                                        <input class="file-input" type="file" name="image">
+                                        <img name="img" src="{{ url_for('static', filename='img/' + producto.image) }}" width="190" height="100px" alt="">
+                                        <span class="file-cta">
+                                            <span class="file-icon">
+                                                <i class="fas fa-upload"></i>
+                                            </span>
+                                            <span class="file-label">
+                                                Elija un archivo…
+                                            </span>
+                                        </span>
+                                        <span class="file-name">
+                                            No se ha seleccionado ningún archivo
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="field has-text-centered">
+                                <div class="control">
+                                    <button class="button is-success" name="modificar">Modificar</button>
+                                    <a href="principalAd" class="button is-warning"><i class="icon-action-undo icon-white"></i>Cancelar</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

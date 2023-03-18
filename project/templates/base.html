@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Urban Mode Co.</title>
+    <link rel="icon" href="../static/img/logo_size_invert.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css" />
+    <link rel="stylesheet" href="../static/fontawesome-free-6.3.0-web/css/all.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css"
+        integrity="sha384-HzRT/Nb5dGtKjQDdIrKrMSzSRHQy5SZwN5JxMkUTeA3GX3q8XdYtstn1hGzKjA2Q" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/estilos.css">
+</head>
+
+<body>
+    <section class="hero is-dark is-fullheight">
+
+        <div class="hero-head">
+            <nav class="navbar">
+                <div class="container">
+                    <div class="navbar-brand">
+                        <a class="navbar-item" href="{{ url_for('main.index') }}">
+                            <img src="../static/img/logo_size_invert.jpg" alt="Urban Mode Co.">
+                        </a>
+                        <span class="navbar-burger burger" data-target="navbarMenuHeroA">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </div>
+    
+                    <div id="navbarMenuHeroA" class="navbar-menu">
+                        <div class="navbar-end">
+                            <a href="{{ url_for('main.index') }}" class="navbar-item">
+                                Inicio
+                            </a>
+                            {% if current_user.is_authenticated %}
+                                <a href="{{ url_for('main.principalAd') }}" class="navbar-item">
+                                    {{current_user.name}}
+                                </a>
+                            {% endif %}
+                            <a href="{{ url_for('auth.nosotros') }}" class="navbar-item">
+                                Nosotros
+                            </a>
+                    
+                            {% if not current_user.is_authenticated %}
+                                <a href="{{ url_for('auth.login') }}" class="navbar-item">
+                                    Login
+                                </a>
+                                <a href="{{ url_for('auth.register') }}" class="navbar-item">
+                                    Registro
+                                </a>
+                            {% endif %}
+                            {% if current_user.is_authenticated %}
+                                <a href="{{ url_for('auth.logout') }}" class="navbar-item">
+                                    Cerrar Sesión
+                                </a>
+                            {% endif %}
+                            <a href="#" class="navbar-item">
+                                <span class="icon has-text-info">
+                                    <i class="fab fa-instagram"></i>
+                                </span>
+                            </a>
+                            <a href="#" class="navbar-item">
+                                <span class="icon has-text-info">
+                                    <i class="fab fa-facebook-f"></i>
+                                </span>
+                            </a>
+                            <a href="#" class="navbar-item">
+                                <span class="icon has-text-info">
+                                    <i class="fab fa-twitter"></i>
+                                </span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <div class="hero-body hero has-background-white-ter">
+            <div class="container has-text-centered">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </section>
+    <footer class="footer has-background-dark">
+        <div class="container">
+            <div class="columns">
+                <div class="column">
+                    <h2 class="subtitle has-text-white">Síguenos en redes sociales</h2>
+                    <div class="field is-grouped">
+                        <p class="control">
+                            <a href="https://es-la.facebook.com/" class="button is-link is-outlined is-rounded">
+                                <span class="icon">
+                                    <i class="fab fa-facebook"></i>
+                                </span>
+                            </a>
+                        </p>
+                        <p class="control">
+                            <a href="https://twitter.com/?lang=es" class="button is-link is-outlined is-rounded">
+                                <span class="icon">
+                                    <i class="fab fa-twitter"></i>
+                                </span>
+                            </a>
+                        </p>
+                        <p class="control">
+                            <a href="https://www.instagram.com/" class="button is-link is-outlined is-rounded">
+                                <span class="icon">
+                                    <i class="fab fa-instagram"></i>
+                                </span>
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="column has-text-right">
+                    <p class="has-text-white">© 2023 Urban Mode Co. Todos los derechos reservados</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+</body>
+
+</html>

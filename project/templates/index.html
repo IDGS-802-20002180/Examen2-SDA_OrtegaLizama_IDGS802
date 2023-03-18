@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="hero is-medium is-bold is-primary">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        ¡Bienvenidos a Urban Mode Co.!
+      </h1>
+      <h2 class="subtitle">
+        Aquí encontrarás la mejor selección de ropa para todas las ocasiones.
+      </h2>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-2 has-text-link">Nuestras novedades</h2>
+    <div class="carousel-container">
+      <div class="carousel">
+        <input class="carousel__activator" type="radio" name="carousel" id="slide1" checked>
+        <input class="carousel__activator" type="radio" name="carousel" id="slide2" >
+        <input class="carousel__activator" type="radio" name="carousel" id="slide3" >
+        <div class="carousel__container">
+          <div class="carousel__item">
+            <img src="../static/img/imgFondo1.jpg" alt="Imagen 1">
+          </div>
+          <div class="carousel__item">
+            <img src="../static/img/fondo2.jpeg" alt="Imagen 2">
+          </div>
+          <div class="carousel__item">
+            <img src="../static/img/fondo2.jpeg" alt="Imagen 3">
+          </div>
+        </div>
+        <label class="carousel__control carousel__control--prev" for="slide3"></label>
+        <label class="carousel__control carousel__control--next" for="slide2"></label>
+      </div>      
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns">
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-content">
+            <h3 class="title is-3 has-text-danger">Envío gratis</h3>
+            <p class="subtitle has-text-danger">En compras mayores a $1000 MXN.</p>
+            <p>Realiza tus compras sin preocupaciones y recibe tus productos en la comodidad de tu hogar.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-content">
+            <h3 class="title is-3 has-text-info">Cambios sin costo</h3>
+            <p class="subtitle has-text-info">Si algo no te queda bien, lo cambiamos sin costo.</p>
+            <p>Queremos que te sientas cómodo y seguro con tus compras, por lo que ofrecemos cambios sin costo adicional.</p>
+          </div>
+        </div>
+      </div>
+      <div class="column is-one-third">
+        <div class="card">
+          <div class="card-content">
+            <h3 class="title is-3 has-text-success">Productos de calidad</h3>
+            <p class="subtitle has-text-success">Nos aseguramos de ofrecer solo lo mejor.</p>
+            <p>Cada uno de nuestros productos es seleccionado cuidadosamente para garantizar calidad y satisfacción en cada compra.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

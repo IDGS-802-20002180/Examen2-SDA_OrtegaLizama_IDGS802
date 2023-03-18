@@ -1,0 +1,121 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    {% for category, message in messages %}
+    <div class="notification is-success is-light">
+        <button class="delete"></button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    <script>
+        // Agregar controlador de eventos click al botón "Cerrar"
+        document.querySelector('.notification button.delete').addEventListener('click', function(event) {
+            event.preventDefault();
+            this.parentNode.style.display = 'none';
+        });
+    </script>
+    {% endif %}
+    {% endwith %}
+<section class="section">
+    {% if current_user.admin %}
+    <h3 class="title has-text-black has-text-centered">Ropa en Stock</h3>
+    <div class="column is-one-third">
+        <a class="button is-primary is-small is-fullwidth" href="administrador">
+            <span>Agregar Nuevo 
+            <i class="fa-solid fa-shirt"></i></span>
+        </a>
+    </div>
+    <div class="columns is-multiline">
+        {% for produc in productos %}
+        <div class="column is-one-quarter">
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-1by1">
+                        <img src="{{ url_for('static', filename='img/' + produc.image) }}" alt=""
+                            style="object-fit: cover;">
+                    </figure>
+                </div>
+                <div class="card-content">
+                    <p class="title is-5 has-text-black">{{produc.nombre}}</p>
+                    <p class="subtitle is-6 has-text-black">{{produc.estilo}}</p>
+                    <p class="is-size-7 has-text-weight-semibold has-text-black">${{produc.precio}}</p>
+                    <button class="button is-size-7 is-primary is-outlined is-small more-info-btn">Ver más</button>
+                    <div class="more-info" style="display: none;">
+                        <p>{{produc.descripcion}}</p>
+                    </div>
+
+                </div>
+                <footer class="card-footer">
+                    <a href="modificar?id={{produc.id}}" class="card-footer-item has-text-link">Editar</a>
+                    <a href="eliminar?id={{produc.id}}" class="card-footer-item has-text-danger">Eliminar</a>
+                </footer>
+            </div>
+        </div>
+        {% if loop.index % 4 == 0 %}
+    </div>
+    <div class="columns is-multiline">
+        {% endif %}
+        {% endfor %}
+    </div>
+
+</section>
+
+{% else %}
+<section>
+<div class="columns is-multiline">
+
+    {% for produc in productos %}
+    <div class="column is-one-quarter">
+        <div class="card">
+            <div class="card-image">
+                <figure class="image is-1by1">
+                    <img src="{{ url_for('static', filename='img/' + produc.image) }}" alt=""
+                        style="object-fit: cover;">
+                </figure>
+            </div>
+            <div class="card-content">
+                <p class="title is-5 has-text-black">{{produc.nombre}}</p>
+                <p class="subtitle is-6 has-text-black">{{produc.estilo}}</p>
+                <p class="is-size-7 has-text-weight-semibold has-text-black">${{produc.precio}}</p>
+                <button class="button is-size-7 is-primary is-outlined is-small more-info-btn">Ver más</button>
+                <div class="more-info" style="display: none;">
+                    <p>{{produc.descripcion}}</p>
+                </div>
+                <button class="button is-success is-small"><i class="fas fa-cart-plus"></i> Agregar al carrito</button>
+
+            </div>
+            <footer class="card-footer">
+                <h5 class="has-text-centered">Urban Mode</h5>
+            </footer>
+        </div>
+    </div>
+    {% if loop.index % 4 == 0 %}
+</div>
+<div class="columns is-multiline">
+    {% endif %}
+    {% endfor %}
+</div>
+
+</section>
+{% endif %}
+
+
+<script>
+    let moreInfoBtns = document.querySelectorAll('.more-info-btn');
+
+    moreInfoBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            let moreInfoDiv = btn.nextElementSibling;
+            if (moreInfoDiv.style.display === 'none') {
+                moreInfoDiv.style.display = 'block';
+            } else {
+                moreInfoDiv.style.display = 'none';
+            }
+        });
+    });
+</script>
+
+{% endblock %}
