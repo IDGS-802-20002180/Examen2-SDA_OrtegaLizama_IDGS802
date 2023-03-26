@@ -1,227 +1,241 @@
 body {
-    overflow: auto;
+  overflow: auto;
 }
 
 /* Estilos para la sección de presentación */
 .presentation {
-    background-color: #f5f5f5;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
-  
-  .presentation .title {
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 2rem;
-  }
-  
-  .presentation .subtitle {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 4rem;
-  }
-  
-  .carousel {
-    margin: 0 auto;
-    overflow: hidden;
-    width: 100%;
-    position: relative;
-  }
-  
-  .carousel .carousel-item {
-    position: absolute;
-    left: 0;
-    top: 0;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-  }
-  
-  .carousel .carousel-item.is-active {
-    opacity: 1;
-  }
-  
-  .carousel .carousel-item.left {
-    left: -100%;
-  }
-  
-  .carousel .carousel-item.right {
-    left: 100%;
-  }
-  
-  .carousel-navigation {
-    display: flex;
-    justify-content: center;
-    margin-top: 1rem;
-  }
-  
-  .carousel-navigation button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
-    margin: 0 0.5rem;
-  }
-  
-  .carousel-navigation button:focus {
-    outline: none;
-  }
-  
-  .carousel-navigation button i {
-    font-size: 2rem;
-    color: #333;
-  }
-  
-  .carousel-navigation button i:hover {
-    color: #00d1b2;
-  }
-  
-  .carousel-navigation button.is-disabled i {
-    color: #ccc;
-    cursor: default;
-  }
-  
-  /* Estilos para la sección de productos destacados */
-  .featured-products {
-    background-color: #fff;
-    padding-top: 5rem;
-    padding-bottom: 5rem;
-  }
-  
-  .featured-products .title {
-    text-align: center;
-    font-size: 3rem;
-    margin-bottom: 2rem;
-  }
-  
-  .featured-products .subtitle {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 4rem;
-  }
-  
-  .featured-products .product {
-    border: 1px solid #ddd;
-    margin-bottom: 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-  }
-  
-  .featured-products .product .product-image {
-    background-color: #f5f5f5;
-    width: 100%;
-    height: 300px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .featured-products .product .product-image img {
-    max-width: 100%;
-    max-height: 100%;
-  }
-  
-  .featured-products .product .product-info {
-    padding: 1rem;
-  }
-  
-  .featured-products .product .product-info .product-name {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .featured-products .product .product-info .product-description {
-    margin-bottom: 1rem;
-  }
-  
-  .featured-products .product .product-info .product-price {
-    font-size: 1.5rem;
-    font-weight: bold;
-  }
-  
-  .featured-products .product .product-info .add-to-cart {
-    margin-top: 1rem;
-  }
-  
-  .featured-products .product .product-info .add-to-cart button {
-    background-color: #00d1b2;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    padding: 0.5rem 1rem;
-  }
-  
-  .carousel {
-    position: relative;
-    overflow: hidden;
-    margin: 0 auto;
-    max-width: 600px;
-  }
-  
-  .carousel__activator {
-    display: none;
-  }
-  
-  .carousel__container {
-    display: flex;
-    position: relative;
-    width: 300%;
-    transform: translateX(0);
-    transition: transform 0.6s ease-in-out;
-  }
-  
-  .carousel-item {
-    animation: slide 3s infinite;
-  }
-  
-  @keyframes slide {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-100%);
-    }
-  }
-  .carousel__item img {
-    display: block;
-    width: 100%;
-    height: auto;
-  }
-  
-  .carousel__control {
-    position: absolute;
-    top: 50%;
-    width: 30px;
-    height: 30px;
-    background: #fff;
-    border: 2px solid #ddd;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: transform 0.3s ease-in-out;
-  }
-  
-  .carousel__control--prev {
-    left: 10px;
-    transform: translateY(-50%) rotate(45deg);
-  }
-  
-  .carousel__control--next {
-    right: 10px;
-    transform: translateY(-50%) rotate(-135deg);
-  }
-  
-  .carousel__control:hover {
-    transform: scale(1.2);
-  }
-  
-  #slide1:checked ~ .carousel__container {
+  background-color: #f5f5f5;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.presentation .title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.presentation .subtitle {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.carousel {
+  margin: 0 auto;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.carousel .carousel-item {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.carousel .carousel-item.is-active {
+  opacity: 1;
+}
+
+.carousel .carousel-item.left {
+  left: -100%;
+}
+
+.carousel .carousel-item.right {
+  left: 100%;
+}
+
+.carousel-navigation {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.carousel-navigation button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin: 0 0.5rem;
+}
+
+.carousel-navigation button:focus {
+  outline: none;
+}
+
+.carousel-navigation button i {
+  font-size: 2rem;
+  color: #333;
+}
+
+.carousel-navigation button i:hover {
+  color: #00d1b2;
+}
+
+.carousel-navigation button.is-disabled i {
+  color: #ccc;
+  cursor: default;
+}
+
+/* Estilos para la sección de productos destacados */
+.featured-products {
+  background-color: #fff;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.featured-products .title {
+  text-align: center;
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.featured-products .subtitle {
+  text-align: center;
+  font-size: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.featured-products .product {
+  border: 1px solid #ddd;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.featured-products .product .product-image {
+  background-color: #f5f5f5;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.featured-products .product .product-image img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.featured-products .product .product-info {
+  padding: 1rem;
+}
+
+.featured-products .product .product-info .product-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.featured-products .product .product-info .product-description {
+  margin-bottom: 1rem;
+}
+
+.featured-products .product .product-info .product-price {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.featured-products .product .product-info .add-to-cart {
+  margin-top: 1rem;
+}
+
+.featured-products .product .product-info .add-to-cart button {
+  background-color: #00d1b2;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  max-width: 600px;
+}
+
+.carousel__activator {
+  display: none;
+}
+
+.carousel__container {
+  display: flex;
+  position: relative;
+  width: 300%;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+}
+
+.carousel-item {
+  animation: slide 3s infinite;
+}
+
+@keyframes slide {
+  from {
     transform: translateX(0);
   }
-  
-  #slide2:checked ~ .carousel__container {
+
+  to {
     transform: translateX(-100%);
   }
-  
-  #slide3:checked ~ .carousel__container {
-    transform: translateX(-200%);
-  }
+}
+
+.carousel__item img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.carousel__control {
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  background: #fff;
+  border: 2px solid #ddd;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.carousel__control--prev {
+  left: 10px;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.carousel__control--next {
+  right: 10px;
+  transform: translateY(-50%) rotate(-135deg);
+}
+
+.carousel__control:hover {
+  transform: scale(1.2);
+}
+
+#slide1:checked~.carousel__container {
+  transform: translateX(0);
+}
+
+#slide2:checked~.carousel__container {
+  transform: translateX(-100%);
+}
+
+#slide3:checked~.carousel__container {
+  transform: translateX(-200%);
+}
+
+.starrr {
+  display: block;
+}
+
+.starrr a {
+  font-size: 16px;
+  padding: 0 1px;
+  cursor: pointer;
+  color: #FFD119;
+  text-decoration: none;
+}

@@ -6,15 +6,24 @@ from flask_security.decorators import roles_required, roles_accepted
 from . import db
 from project.models import Products, Role
 from werkzeug.utils import secure_filename
+import logging
+from logging.handlers import RotatingFileHandler
+from datetime import datetime
+
 main = Blueprint('main', __name__)
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
+handler = RotatingFileHandler('flask.log', maxBytes=10000, backupCount=1)
+handler.setLevel(logging.INFO)
+logger.addHandler(handler)
 
 # Definimos las rutas
 
 # Definimos la ruta para la página principal
-
-
 @main.route('/')
 def index():
+    fecha_actual = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+    logger.info('Se inicio la aplicación'+ ' el dia '+ fecha_actual)
     return render_template('index.html')
 
 # Definimos la ruta para la página de perfil de usuairo

@@ -79,6 +79,7 @@
             <div class="card-content">
                 <p class="title is-5 has-text-black">{{produc.nombre}}</p>
                 <p class="subtitle is-6 has-text-black">{{produc.estilo}}</p>
+                <div class="starrr"></div>
                 <p class="is-size-7 has-text-weight-semibold has-text-black">${{produc.precio}}</p>
                 <button class="button is-size-7 is-primary is-outlined is-small more-info-btn">Ver más</button>
                 <div class="more-info" style="display: none;">
@@ -116,6 +117,9 @@
             }
         });
     });
+
+    $('.starrr').starrr({
+		})
 </script>
 
 {% endblock %}
